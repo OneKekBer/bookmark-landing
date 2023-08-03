@@ -1,0 +1,103 @@
+@import './components/common.scss';
+@import './components/var.scss';
+@import './components/mixin.scss';
+
+
+html,
+body {
+    font-family: $ffrubik;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.header {
+    &-img {
+        max-width: 100%;
+        object-fit: cover;
+    }
+
+    padding: 20px 0;
+
+    &__button {
+        @include button ($softred, white, $softred)
+    }
+
+}
+
+.hero {
+    margin: 50px 0;
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    &__img {
+        max-width: 100%;
+        // display: block;
+        object-fit: contain;
+    }
+
+    &__button {
+
+
+        &-blue {
+            @include button($softblue, white, $softblue)
+        }
+
+        &-gray {
+            @include button ($lightgrey, black, $lightgrey)
+        }
+    }
+
+    @include laptop {
+        &__button-container {
+            justify-content: space-around;
+        }
+
+        .container {
+            flex-direction: column-reverse;
+            text-align: center;
+        }
+    }
+}
+
+
+.feat {
+    &__text {
+        padding: 0 10%;
+        text-align: center;
+    }
+
+    &__tabs {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        &-nums {
+            display: flex;
+            justify-content: center;
+
+            align-items: center;
+        }
+    }
+
+    @include tablet {
+        &__tabs {
+            &-nums {
+                flex-direction: column !important;
+            }
+        }
+    }
+}
+
+
+
+@include tablet {
+
+
+    $h1: 30px;
+    $h2: 20px;
+}

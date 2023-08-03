@@ -1,0 +1,61 @@
+@import url(https://fonts.googleapis.com/css?family=Rubik:300,regular,500,600,700,800,900,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+//color
+
+$softblue:hsl(231, 69%, 60%);
+$softred:hsl(0, 94%, 66%);
+$grayblue:hsl(229, 8%, 60%);
+$verydarkblue: hsl(229, 31%, 21%);
+$lightgrey:#f7f7f7;
+//font
+
+
+//size
+$h1:55px;
+$h2:35px;
+$h3:20px;
+
+$p:20px;
+
+
+
+
+
+//weight
+
+$fwbold:700;
+
+//family
+
+$ffrubik:'Rubik',
+sans-serif;
+//media
+
+$xl:1200px;
+$lg:767px;
+$md:567px;
+$sm:360px;
+
+
+h1 {
+    font-size: $h1;
+    font-weight: $fwbold;
+    margin: 0;
+    padding: 0;
+
+}
+
+h2 {
+    font-size: $h2;
+    font-weight: $fwbold;
+}
+
+h3 {
+    font-size: $h3;
+    font-weight: $fwbold;
+}
+
+p {
+    color: $grayblue;
+    font-size: $p;
+}
