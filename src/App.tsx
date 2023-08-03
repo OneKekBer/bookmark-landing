@@ -13,18 +13,21 @@ import chrome from './assets/logo-chrome.png';
 import firefox from './assets/logo-firefox.png';
 import opera from './assets/logo-opera.png';
 
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
 
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-import { useMediaQuery } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, useMediaQuery } from '@mui/material';
 import TabComponent from './components/Tab';
 
 function App() {
 
   const isNonMobileScreen576 = useMediaQuery("(min-width:576px)");
+  const isNonMobileScreen767 = useMediaQuery("(min-width:767px)");
   const [value, setValue] = useState('1');
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
@@ -156,11 +159,95 @@ function App() {
 
 
       <div className="faq">
-        <div className="container">
-          <div className="faq__title"></div>
-          <div className="faq__text"></div>
-          <div className="faq__accordion"></div>
-          <div className="faq__button"></div>
+        <div className="container flex-center text-center">
+          <h2 className="faq__title">Frequently Asked Questions</h2>
+          <p className="faq__text">Here are some of our FAQs.<br /> If you have any other questions you’d like
+            answered please feel free to email us.
+          </p>
+          <Box className='faq__accordion' sx={{ width: isNonMobileScreen767 ? '70%' : '100%' }}>
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <h5 style={{ margin: 0 }}>What is Bookmark?</h5>
+              </AccordionSummary>
+              <AccordionDetails>
+                <p style={{ margin: 0 }}>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt
+                  justo eget ultricies fringilla. Phasellus blandit ipsum quis quam ornare mattis.
+
+                </p>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <h5 style={{ margin: 0 }}>What is Bookmark?</h5>
+              </AccordionSummary>
+              <AccordionDetails>
+                <p style={{ margin: 0 }}>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt
+                  justo eget ultricies fringilla. Phasellus blandit ipsum quis quam ornare mattis.
+
+                </p>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <h5 style={{ margin: 0 }}>What is Bookmark?</h5>
+              </AccordionSummary>
+              <AccordionDetails>
+                <p style={{ margin: 0 }}>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt
+                  justo eget ultricies fringilla. Phasellus blandit ipsum quis quam ornare mattis.
+
+                </p>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <h5 style={{ margin: 0 }}>What is Bookmark?</h5>
+              </AccordionSummary>
+              <AccordionDetails>
+                <p style={{ margin: 0 }}>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt
+                  justo eget ultricies fringilla. Phasellus blandit ipsum quis quam ornare mattis.
+
+                </p>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <h5 style={{ margin: 0 }}>What is Bookmark?</h5>
+              </AccordionSummary>
+              <AccordionDetails>
+                <p style={{ margin: 0 }}>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt
+                  justo eget ultricies fringilla. Phasellus blandit ipsum quis quam ornare mattis.
+
+                </p>
+              </AccordionDetails>
+            </Accordion>
+
+          </Box>
+          <div className="faq__button">More info</div>
         </div>
       </div>
 
