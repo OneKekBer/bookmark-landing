@@ -274,7 +274,8 @@ body {
 
 @include tablet {
 
-    .css-heg063-MuiTabs-flexContainer {
+    .MuiTabs-flexContainer,
+    .MuiTabs-flexContainer {
         flex-direction: column;
     }
 
