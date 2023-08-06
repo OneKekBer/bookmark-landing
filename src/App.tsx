@@ -221,7 +221,7 @@ function App() {
           <p className="faq__text">Here are some of our FAQs.<br /> If you have any other questions you’d like
             answered please feel free to email us.
           </p>
-          <Box className='faq__accordion' sx={{ width: isNonMobileScreen767 ? '70%' : '100%', }}>
+          <Box className='faq__accordion' sx={{ width: isNonMobileScreen767 ? '50%' : '100%', }}>
 
             <Accordion className='acc__item' sx={{ boxShadow: 'none' }}>
               <AccordionSummary
