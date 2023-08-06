@@ -25,6 +25,29 @@ import { Accordion, AccordionDetails, AccordionSummary, useMediaQuery, TextField
 import TabComponent from './components/Tab';
 
 function App() {
+
+  const [email, setEmail] = useState('');
+  const [validEmail, setValidEmail] = useState(true);
+
+
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!email.match(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/)) {
+      setValidEmail(false);
+    } else {
+      setValidEmail(true);
+      // Perform your form submission logic here
+      e.preventDefault()
+      alert('thanks for your email');
+      setEmail(' ')
+    }
+  };
+
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -107,6 +130,7 @@ function App() {
           <div className='hero__img-container'>
 
             <img className='hero__img' src={hero} alt="" />
+            <div className='shape'> </div>
           </div>
 
 
@@ -197,10 +221,11 @@ function App() {
           <p className="faq__text">Here are some of our FAQs.<br /> If you have any other questions you’d like
             answered please feel free to email us.
           </p>
-          <Box className='faq__accordion' sx={{ width: isNonMobileScreen767 ? '70%' : '100%' }}>
+          <Box className='faq__accordion' sx={{ width: isNonMobileScreen767 ? '70%' : '100%', }}>
 
-            <Accordion>
+            <Accordion className='acc__item' sx={{ boxShadow: 'none' }}>
               <AccordionSummary
+
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
@@ -215,7 +240,7 @@ function App() {
                 </p>
               </AccordionDetails>
             </Accordion>
-            <Accordion>
+            <Accordion className='acc__item'  >
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
@@ -231,7 +256,7 @@ function App() {
                 </p>
               </AccordionDetails>
             </Accordion>
-            <Accordion>
+            <Accordion className='acc__item'  >
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
@@ -247,7 +272,7 @@ function App() {
                 </p>
               </AccordionDetails>
             </Accordion>
-            <Accordion>
+            <Accordion className='acc__item'  >
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
@@ -274,12 +299,16 @@ function App() {
         <div className="container text-center">
           <div className="stay__caption">35,000+ already joined</div>
           <h2 className="stay__title">Stay up-to-date with what we’re doing</h2>
-          <form action="" className="stay__form">
+          <form action="" className="stay__form" onSubmit={handleSubmit}>
             <TextField
               sx={{ color: 'white', backgroundColor: 'white', borderRadius: '8px' }}
               label="Enter your email address"
               variant="filled"
               className='stay__input'
+              value={email}
+              onChange={handleInputChange}
+              error={!validEmail}
+              helperText={!validEmail && "Invalid email address"}
             />
             <button className='stay__button' type='submit'>Contact Us</button>
           </form>

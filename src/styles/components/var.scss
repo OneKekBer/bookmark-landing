@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Rubik:300,regular,500,600,700,800,900,300italic,italic,500italic,600italic,700italic,800italic,900italic);
-
+@import 'mixin.scss';
 //color
 
 $softblue:hsl(231, 69%, 60%);
@@ -16,9 +16,6 @@ $h2:35px;
 $h3:20px;
 
 $p:20px;
-
-
-
 
 
 //weight
@@ -58,4 +55,11 @@ h3 {
 p {
     color: $grayblue;
     font-size: $p;
+}
+
+
+@include tablet {
+    $h1: 30px;
+    $h2: 20px;
+
 }

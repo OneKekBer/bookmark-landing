@@ -30,7 +30,13 @@ body {
     }
 
     &__text {
-        color: black
+        color: black;
+
+        &:hover {
+            color: $softred;
+            transition: all .3s;
+            border-bottom: 1px solid $softred;
+        }
     }
 
 }
@@ -59,9 +65,37 @@ body {
     }
 
     &__img {
-        width: 100%;
-        // display: block;
         object-fit: contain;
+        width: 100%;
+        height: 100%;
+        grid-area: 1 / 1;
+    }
+
+    &__img-container {
+        width: 100%;
+        display: grid;
+        // display: block;
+        min-width: 50vw;
+        position: relative;
+
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+    }
+
+    .shape {
+        grid-area: 1/1;
+        z-index: -1;
+        position: absolute;
+        width: 160%;
+        height: 100%;
+        background: $softblue;
+        border-radius: 100px;
+        transform: translate(15%, 10%);
     }
 
     &__button {
@@ -92,6 +126,12 @@ body {
         }
 
         &__info {
+
+
+            align-items: center;
+            justify-content: center;
+
+
             order: 2
         }
 
@@ -105,7 +145,21 @@ body {
             grid-template-columns: repeat(1, 1fr);
         }
     }
+
+    @include tablet {
+
+
+        .shape {
+
+            height: 80%;
+
+            transform: translate(15%, 20%);
+        }
+
+
+    }
 }
+
 
 
 .feat {
@@ -285,8 +339,6 @@ body {
         flex-direction: column;
     }
 
-    $h1: 30px;
-    $h2: 20px;
 
     .container {
         margin-bottom: 30%;
@@ -302,5 +354,15 @@ body {
             flex-direction: column;
 
         }
+    }
+}
+
+.acc__item {
+    box-shadow: none !important;
+
+
+    h5:hover {
+        color: $softred;
+        transition: all .3s;
     }
 }
