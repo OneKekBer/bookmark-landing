@@ -204,8 +204,79 @@ body {
     }
 }
 
+
+.feat__tabs-nums {
+    flex-direction: column !important;
+}
+
+
+.stay {
+    color: white;
+    padding: 10% 0;
+    text-align: center;
+
+    .container {
+        margin: 0;
+    }
+
+    form {
+        display: flex;
+        gap: 10px
+    }
+
+    &__button {
+        @include button ($softred, white, $softred)
+    }
+
+    &__caption {
+        letter-spacing: 5px;
+        margin-bottom: 20px;
+    }
+
+    &__title {
+        margin-bottom: 40px;
+    }
+
+    &__input {}
+}
+
+
+.footer {
+    background-color: $verydarkblue;
+    color: white;
+
+    .container {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        margin: 0;
+    }
+
+    &__logo {
+        text-align: center;
+    }
+
+    &__wrapper {
+        gap: 30px
+    }
+
+    &__menu,
+    &__wrapper {
+        display: flex;
+
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    a {
+        color: white;
+    }
+}
+
 @include tablet {
 
+    .css-heg063-MuiTabs-flexContainer {
+        flex-direction: column;
+    }
 
     $h1: 30px;
     $h2: 20px;
@@ -213,5 +284,16 @@ body {
     .container {
         margin-bottom: 30%;
         padding: 0 5%;
+    }
+
+    .footer {
+        &__wrapper {
+            flex-direction: column;
+        }
+
+        .container {
+            flex-direction: column;
+
+        }
     }
 }
