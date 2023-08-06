@@ -262,6 +262,10 @@ body {
     &__button {
         @include button($softblue, white, $softblue)
     }
+
+    h5 {
+        padding: 10px 0;
+    }
 }
 
 
