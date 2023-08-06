@@ -14,7 +14,11 @@ const item = {
 
 export const DownloadsBlock = ({ img, title, text }: Props) => {
    return (
-      <motion.div variants={item} className="down__box box-1 text-center">
+      <motion.div
+         transition={{ duration: 0.5 }}
+         variants={item}
+         className="down__box box-1 text-center"
+      >
          <img className="down__box-img" src={img} />
          <h3 className="down__box-title">{title}</h3>
          <p className="down__box-text">{text}</p>

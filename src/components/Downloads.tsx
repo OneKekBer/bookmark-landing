@@ -7,23 +7,11 @@ import firefox from "../assets/logo-firefox.png";
 import opera from "../assets/logo-opera.png";
 import DownloadsBlock from "./DownloadsBlock";
 import { motion, useAnimation, useInView } from "framer-motion";
-
-const container = {
-   hidden: { opacity: 0 },
-   visible: {
-      opacity: 1,
-      transition: {
-         staggerChildren: 1,
-      },
-   },
-};
-
-// const item = {
-//    hidden: { opacity: 0 },
-//    visible: { opacity: 1 },
-// };
+import { useMediaQuery } from "@mui/material";
 
 export const Downloads = () => {
+   const isNonMobileScreen576 = useMediaQuery("(min-width:576px)");
+
    const ref = useRef(null);
    const isInView = useInView(ref, { once: true });
    const animation = useAnimation();
@@ -31,9 +19,18 @@ export const Downloads = () => {
    useEffect(() => {
       if (isInView) {
          animation.start("visible");
-         console.log("вижу его!");
       }
    }, [isInView, animation]);
+
+   const container = {
+      hidden: { opacity: 0 },
+      visible: {
+         opacity: 1,
+         transition: {
+            staggerChildren: isNonMobileScreen576 ? 1 : 1.5,
+         },
+      },
+   };
    return (
       <div className="down">
          <div className="container text-center">
@@ -58,7 +55,7 @@ export const Downloads = () => {
                   title="Add to Chrome"
                   text="Minimum version 55"
                />
-               {/* <motion.div variants={item}>hello</motion.div> */}
+
                <DownloadsBlock
                   img={firefox}
                   title=" Add to Firefox"
