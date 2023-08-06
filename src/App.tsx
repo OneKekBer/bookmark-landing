@@ -21,10 +21,18 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-import { Accordion, AccordionDetails, AccordionSummary, useMediaQuery, TextField } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, useMediaQuery, TextField, MenuItem, Menu, Button } from '@mui/material';
 import TabComponent from './components/Tab';
 
 function App() {
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   const isNonMobileScreen576 = useMediaQuery("(min-width:576px)");
   const isNonMobileScreen767 = useMediaQuery("(min-width:767px)");
@@ -46,11 +54,36 @@ function App() {
             <img src={logo} className='header__img' alt="" />
           </div>
           {isNonMobileScreen576 ? <div className="header__texts flex-between">
-            <div className="header__text">FEATURES</div>
-            <div className="header__text">PRICING</div>
-            <div className="header__text">CONTACT</div>
-            <div className="header__button">LOGIN</div>
-          </div> : <div className=''>menu</div>}
+            <a href='#' className="header__text">FEATURES</a>
+            <a href='#' className="header__text">PRICING</a>
+            <a href='#' className="header__text">CONTACT</a>
+            <a href='#' className="header__button">LOGIN</a>
+          </div> : <div className=''>
+            <Button
+              id="basic-button"
+              aria-controls={open ? 'basic-menu' : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? 'true' : undefined}
+              onClick={handleClick}
+
+            >
+              menu
+            </Button>
+            <Menu
+
+              id="basic-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                'aria-labelledby': 'basic-button',
+              }}
+            >
+              <MenuItem onClick={handleClose}>FEATURES</MenuItem>
+              <MenuItem onClick={handleClose}>PRICING</MenuItem>
+              <MenuItem onClick={handleClose}>CONTACT</MenuItem>
+              <MenuItem onClick={handleClose}><a href='#' className="header__button">LOGIN</a></MenuItem>
+            </Menu></div>}
 
         </div>
       </div>

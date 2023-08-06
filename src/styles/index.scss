@@ -9,6 +9,8 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
+
+    scroll-behavior: smooth;
 }
 
 .header {
@@ -25,6 +27,10 @@ body {
 
     &__button {
         @include button ($softred, white, $softred)
+    }
+
+    &__text {
+        color: black
     }
 
 }
@@ -66,7 +72,7 @@ body {
         }
 
         &-gray {
-            @include button ($lightgrey, black, $lightgrey)
+            @include button ($lightgrey, black, black)
         }
     }
 
@@ -134,7 +140,7 @@ body {
 
 .down {
 
-    .container {}
+
 
     &__title {
 
@@ -237,7 +243,7 @@ body {
         margin-bottom: 40px;
     }
 
-    &__input {}
+
 }
 
 
